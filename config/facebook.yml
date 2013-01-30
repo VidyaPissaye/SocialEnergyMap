@@ -1,0 +1,9 @@
+development: &defaults
+client_id: "169011579889904"
+client_secret: '897002a0085e2a44dfdbc1ccbd247c19'
+scope: user_likes, user_photos, friends_likes, friends_photos
+canvas_url: http://apps.facebook.com/socialenergymap/
+test:
+  <<: *defaults
+production:
+  <<: *defaults

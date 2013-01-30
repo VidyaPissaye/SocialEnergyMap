@@ -1,0 +1,94 @@
+
+  <div id="Photo_albums">
+
+  <h2> Choose to view your's or your friend's pictures </h2> <br></br>
+  <p> <a href="/home/user_albums?my_album=true">My albums</a>! </p>
+  <p> <%= link_to "My Friend's Albums", home_user_albums_path %>! </p>
+
+
+    <div id="chart_div" style="width:400; height:300"></div>
+
+</div>
+
+
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+    var chart_div = document.createElement('div');
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1.0', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Mushrooms', 3],
+            ['Onions', 1],
+            ['Olives', 1],
+            ['Zucchini', 1],
+            ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+            'width':400,
+            'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        console.debug(chart);
+        document.body.appendChild(chart_div);
+
+    }
+
+  $(document).bind("onFacebookReady", function(){
+      console.debug("fb ready");
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            //var FB = require('FB');
+            var signedRequest = response.authResponse.signedRequest;
+            if(signedRequest) {
+                var accessToken = response.authResponse.accessToken;
+                var user_id = response.authResponse.userID;
+            }
+
+
+            console.log('You are logged in');
+            // connected
+        } else if (response.status === 'not_authorized') {
+            // not_authorized
+            console.log('you are not authorized');
+            login();
+        } else {
+            // not_logged_in
+            console.log('you are not logged in');
+            login();
+        }
+
+    });
+
+    function login() {
+        FB.login(function(response) {
+            if (response.authResponse) {
+
+               // getphotolikes(response.authResponse);
+
+            }
+            else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }, {scope: 'user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location'});
+    }
+  });
+</script>

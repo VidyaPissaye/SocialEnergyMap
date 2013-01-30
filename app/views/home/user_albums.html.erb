@@ -1,0 +1,284 @@
+
+    <%= stylesheet_link_tag 'fp_photos', :media => "all", :rel => "stylesheet" %>
+    <%= javascript_include_tag 'fb_photos' %>
+
+
+<script language="javascript" type="text/javascript">
+
+$(document).bind("onFacebookReady",function(){
+    FB.getLoginStatus(
+        function(response) {
+            if (response.status === "connected") {
+
+                getalbums(response.authResponse.userID);
+
+            } else if (response.status === "not_authorized") {
+                //user is currently logged in to facebook, but has not authorized this app
+            } else {
+                //user is not logged in to facebook
+            }
+        }
+    );
+
+});
+    ////onlogin="OnRequestPermission();">
+
+    /*  window.fbAsyncInit = function() {
+
+
+     // init the FB JS SDK
+     FB.init({
+     appId      : '169011579889904', // App ID from the App Dashboard
+     channelUrl : 'http://localhost:3000/channel.html', // Channel File for x-domain communication
+     status     : true, // check the login status upon init?
+     cookie     : true, // set sessions cookies to allow your server to access the session?
+     xfbml      : true,  // parse XFBML tags on this page?
+     oauth      : true
+     });  */
+
+
+    //   if(isLoaded) {
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+    /*   $.ajax({
+     type: "POST",
+     //url: '/home/get_user_likes',
+     dataType: 'json',
+     data: {
+     signedRequest : signedRequestValue
+     },
+     success: function(signedRequest){
+     console.debug(signedRequest);   */
+
+
+    //var signedRequest  = FB.Auth.parseSignedRequest(signedRequestValue, '897002a0085e2a44dfdbc1ccbd247c19');
+
+
+
+
+
+
+
+    /* FB.api('/me/albums', function(albums) {
+
+     //console.log(response.likes);
+
+     //    var album_id = albums.data[0].id;
+
+     if(albums && albums.data && albums.data.length) {
+
+     for ( var i=0; i<albums.data.length; i++) {
+     var album = albums.data[i];
+     //  console.debug("album id is" + album.id);
+     console.debug(albums.data[i].cover_photo);
+
+
+     FB.api("/"+album.id+"/picture", function(cover_image){
+     //console.debug(">>>>>>>>");
+     var cover_photo = document.createElement('img');
+     console.debug(i);
+
+     cover_photo.src = cover_image.data.url;
+     cover_photo.album_id = album.id;
+     cover_photo.album_name = album.name;
+     document.body.appendChild(cover_photo);
+
+
+
+     cover_photo.onclick = function() {
+     console.debug("Choose and album by clicking on it");
+     // console.debug(this.album_id);
+     console.log('The album is ' + this.album_id);
+     var albumid = this.album_id;
+
+     FB.api("/"+albumid+"/photos",function(photos){
+     //var photos = response["data"];
+     // console.debug(photos.data);
+
+     if (photos && photos.data && photos.data.length){
+     for (var j=0; j<photos.data.length; j++){
+     var photo = photos.data[j];
+     // console.debug("photo");
+     // console.debug(photos.data[0]);
+     // photo.picture contain the link to picture
+     var image = document.createElement('img');
+     image.src = photo.picture;
+     image.id = photo.id;
+     image.name = photo.name;
+
+     document.body.appendChild(image);
+
+     image.onclick = function() {
+     console.debug("image selected is '" + this.name + "' and is liked by");
+
+     FB.api(this.id + "/likes", function(likes) {
+
+
+     for(var i= 0, l=likes.data.length; i<l; i++) {
+     console.log(likes.data[i].name);
+
+     }
+
+     //var responseBody = JSON.parse(likes.body);
+
+
+     });
+
+     // img clicked
+     };
+     }
+     }
+     });
+
+
+
+
+
+
+
+     }
+     }
+
+
+
+     //  console.log('Your photo name is ' + response.data[1].likes.data[1].name);
+     });  */
+
+    /*     FB.api("/", "POST", {
+     access_token: accessToken,
+     batch:[
+     {
+     "method":"GET",
+     "name":"get-albums",
+     "omit_response_on_success": false,
+     "relative_url":"me/albums"
+     },
+     {
+     "method": "GET",
+     "depends_on":"get-albums",
+     "relative_url":"{result=get-albums:$.data[0].id}/picture"
+     }
+     ]
+     }, function(response) {
+     if (!response || response.error) {
+     //console.log(response.error_description);
+     console.debug("error response");
+     } else {
+     /*
+     *       Iterate through each Response
+     */
+    // for(var i=0,l=response.length; i<l; i++) {
+    /*
+     *       If we have set 'omit_response_on_success' to true in the Request, the Response value will be null, so continue to the next iteration
+     */
+    // if(i === 0) {
+
+    //    var responseBody = JSON.parse(response[i].body);
+    //var album_id[j] =
+
+    // if(responseBody.error) {
+    // do something useful here
+    //      console.log(responseBody.error.message);
+    //    }
+    /*
+     *       Else handle the data Object
+     */
+    //      else {
+    // do something useful here
+    //         console.log(responseBody.data[1]);
+    //       }
+
+
+    //     }
+
+    //    if(i===1) {
+
+    /*
+     *       Else we are expecting a Response Body Object in JSON, so decode this
+     */
+    //var responseBody = JSON.parse(response[i].body);
+
+    //     var cover_photo = document.createElement('img');
+
+    //cover_photo.src = response[i].data.url;
+    //   console.debug(response[i].data);
+    //     document.body.appendChild(cover_photo);
+
+    /*
+     *       If the Response Body includes an Error Object, handle the Error
+     */
+    //  if(response[i].error) {
+    // do something useful here
+    //        console.log(response[i].error.message);
+    //      }
+    /*
+     *       Else handle the data Object
+     */
+    /*             else {
+     // do something useful here
+     console.log(response[i]);
+     }
+     }
+     }
+     }
+     });   */
+
+
+
+    /*  $.ajax({
+     type: "POST",
+     url: '/home/get_user_likes',
+     dataType: 'json',
+     data: {
+     access_token : accessToken,
+     user_id : userId
+     },
+     success: function(res){
+     console.debug(res);
+     }
+     });
+
+     $.ajax({
+     type: 'POST',
+     url: 'https://graph.facebook.com/oauth/access_token',
+     data: {
+     grant_type: "fb_exchange_token",
+     client_id: "169011579889904",
+     client_secret: "897002a0085e2a44dfdbc1ccbd247c19",
+     fb_exchange_token: "SHORT_LIVED_ACCESS_TOKEN"
+     },
+     success: function(data) {
+     console.log(data);
+     // Exchange was successful, long lived access token is included in data and should be stored
+     }
+     });  */
+
+    //console.log(userId)ken;
+    //console.log(accessTo);
+
+
+
+
+    //  }
+
+ //   });
+
+    // Load the SDK's source Asynchronously
+    /*  (function(d, debug){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+     ref.parentNode.insertBefore(js, ref);
+     }(document, false));    */
+
+
+
+
+
+
+
+</script>
+
+

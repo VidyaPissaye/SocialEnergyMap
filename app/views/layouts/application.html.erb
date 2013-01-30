@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:fb="">
+    <head>
+      <title>Social Energy Map</title>
+
+      <%= stylesheet_link_tag    "application", :media => "all" %>
+      <%= stylesheet_link_tag    "custom_style", :media => "all" %>
+      <%= javascript_include_tag "application" %>
+      <%= csrf_meta_tag %>
+
+    </head>
+
+
+    <body id="body">
+
+        <div id="banner">
+          <%= @page_title || "Social Energy Map" %>
+        </div>
+
+        <div id="fb-root"></div>
+
+        <div id="links">
+        <span style="float:right; position: relative;top: -30px;">
+
+        <fb:login-button autologoutlink="true" onclick = "OnRequestPermission();" perms="user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location, user_hometown, friends_hometown">
+        </fb:login-button>
+          </span>
+
+          <ul>
+            <li><a class="list" href="/">Home</a></li>
+            <li><a class="list" href="/">About</a></li>
+
+          </ul>
+        </div>
+        <br></br>
+
+        <%= yield %>
+
+    </body>
+</html>
+
+
+
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+    window.fbAsyncInit = function() {
+        // init the FB JS SDK
+        FB.init({
+            appId      : '169011579889904', // App ID from the App Dashboard
+            channelUrl : 'http://localhost:3000/channel.html', // Channel File for x-domain communication
+            status     : true, // check the login status upon init?
+            cookie     : true, // set sessions cookies to allow your server to access the session?
+            xfbml      : true,  // parse XFBML tags on this page?
+            oauth      : true
+        });
+        console.debug("fb init done");
+        $(document).trigger("onFacebookReady");
+
+
+
+    };
+
+    // Load the SDK's source Asynchronously
+    (function(d, debug){
+        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement('script'); js.id = id; js.async = true;
+        js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";
+        ref.parentNode.insertBefore(js, ref);
+    }(document, /*debug*/ false));
+
+</script>
