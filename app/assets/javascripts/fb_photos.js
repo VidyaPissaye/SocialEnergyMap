@@ -38,6 +38,8 @@ function getalbums (user_id, my_album) {
             frame.setAttribute("id", "image_frame");
             frame.setAttribute("class", "cf");
 
+            document.body.appendChild(frame);
+
 
             //    $(response[0].fql_result_set).each(function(index,value){
 
@@ -74,21 +76,15 @@ function getalbums (user_id, my_album) {
 
                     frame.appendChild(image);
 
-                    document.body.appendChild(frame);
-
                 }
             }
 
         });
 
-   // }
 }
 
 function getphotos(album_id)
 {
-
-
-
 
     FB.api(album_id + "/photos?limit=400&offset=0",function(photos){
         //var photos = response["data"];
@@ -98,6 +94,8 @@ function getphotos(album_id)
             var photo_frame = document.createElement('div');
             photo_frame.setAttribute("id", "image_frame");
             photo_frame.setAttribute("class", "cf");
+
+            document.body.appendChild(photo_frame);
 
             for (var j=0; j<photos.data.length; j++){
 
@@ -128,10 +126,10 @@ function getphotos(album_id)
                     title.appendChild(photo_name);
                 }
 
+
                 image.appendChild(title);
                 photo_frame.appendChild(image);
 
-                document.body.appendChild(photo_frame);
 
             }
         }
@@ -154,6 +152,8 @@ function getuserlikes(photo_id){
             photo_frame.setAttribute("id", "image_frame");
             photo_frame.setAttribute("class", "cf");
 
+            document.body.appendChild(photo_frame);
+
             var image = document.createElement('div');
             image.setAttribute('class', 'picture');
             var pic = document.createElement('img');
@@ -165,8 +165,10 @@ function getuserlikes(photo_id){
                 var heading = document.createElement('div');
                 heading.setAttribute("class", "title");
 
-//                var chart_div = document.createElement('div');
+                var chart_div = document.createElement('div');
+                chart_div.setAttribute("id", "pie");
 
+                photo_frame.appendChild(chart_div);
 
 
                 if(likes.data.length != 0) {
@@ -175,12 +177,14 @@ function getuserlikes(photo_id){
                     heading.appendChild(text);
                     image.appendChild(heading);
 
+                    var country_hash = {};
+                    var arr_length = 0;
+
+
                     for(var i= 0, l=likes.data.length; i<l; i++) {
 
                         var profile = document.createElement('div');
                         profile.setAttribute("class", "profile");
-
-
 
                         FB.api({
                                 method: 'fql.query',
@@ -188,8 +192,6 @@ function getuserlikes(photo_id){
 
                             },
                             function(response) {
-
-                                console.debug(response[0]);
 
                                 var profile_pic = document.createElement('img');
                                 profile_pic.src = response[0].pic_square;
@@ -203,14 +205,36 @@ function getuserlikes(photo_id){
                                 var linebreak = document.createElement('br');
                                 profile.appendChild(linebreak);
 
+                                if(response[0].hometown_location) {
+                                    if(country_hash[response[0].hometown_location.country]){
+                                        country_hash[response[0].hometown_location.country] = country_hash[response[0].hometown_location.country] + 1;
+                                    }
+                                    else{
+                                        country_hash[response[0].hometown_location.country] = 1;
+                                    }
+                                    arr_length++;
+                                }
+                                else{
+                                    if(country_hash['Unknown'])
+                                    {
+                                        country_hash['Unknown'] = country_hash['Unknown'] + 1;
+                                    }
+                                    else{
+                                        country_hash['Unknown'] = 1;
+                                    }
+                                    arr_length++;
+                                }
+
+                                if (arr_length == likes.data.length)
+                                {
+                                    drawChart(country_hash);
+                                }
+
 
                             } );
 
                     }
 
-
-
-                    //photo_frame.appendChild(chart_div);
                     image.appendChild(profile);
                 }
                 else {
@@ -220,74 +244,34 @@ function getuserlikes(photo_id){
                     image.appendChild(heading);
 
                 }
-
-
                 photo_frame.appendChild(image);
-
-                document.body.appendChild(photo_frame);
-
             });
         });
 
-    console.debug("erhther");
-    //$(document).bind("onGoogleReady", function(){
-
-
-        var chart_div = document.createElement('div');
-        chart_div.setAttribute("id", "pie");
-
-    // Load the Visualization API and the piechart package.
-
-      //  google.load('visualization', '1.0', {'packages':['corechart']});
-        document.body.appendChild(chart_div);
-
-
-        //google.load('visualization', '1', {'packages':['corechart']});
-        //google.setOnLoadCallback(drawChart);
-
-
-        // Set a callback to run when the Google Visualization API is loaded.
-
-
-
-        drawChart();
-
-
-
-
-
-//    }
-//);
-
 }
 
-// Callback that creates and populates a data table,
+// Creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
-function drawChart() {
-
-    console.log("drawChart");
+function drawChart(country_count) {
 
     // Create the data table.
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Topping');
-    data.addColumn('number', 'Slices');
-    data.addRows([
-        ['Mushrooms', 3],
-        ['Onions', 1],
-        ['Olives', 1],
-        ['Zucchini', 1],
-        ['Pepperoni', 2]
-    ]);
+    data.addColumn('string', 'Countries');
+    data.addColumn('number', 'Count');
+
+    for(key in country_count)
+    {
+        data.addRow([key, country_count[key]]);
+    }
 
     // Set chart options
-    var options = {'title':'How Much Pizza I Ate Last Night',
+    var options = {'title':'Where are your friends from?',
         'width':400,
         'height':300};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById('pie'));
-    console.debug(chart);
     chart.draw(data, options);
 }
 

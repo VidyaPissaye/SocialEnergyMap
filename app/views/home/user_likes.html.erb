@@ -5,8 +5,10 @@
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script language="javascript" type="text/javascript">
+
     isGoogleLoaded = false;
     isFBLoaded = false;
+
     google.load('visualization', '1', {'packages':['corechart']});
     google.setOnLoadCallback(function(){
         isGoogleLoaded = true;
@@ -16,9 +18,9 @@
             getuserlikes(<%=@photo_id%>);
         }
     });
+
     $(document).bind("onFacebookReady",function(){
 
-   //     $(document).bind("onGoogleReady", function(){
         FB.getLoginStatus(
                 function(response) {
                     if (response.status === "connected") {
@@ -29,7 +31,6 @@
                             getuserlikes(<%=@photo_id%>);
                         }
 
-                        //$(document).trigger("onGoogleReady");
                     } else if (response.status === "not_authorized") {
                         //user is currently logged in to facebook, but has not authorized this app
                     } else {
@@ -37,7 +38,6 @@
                     }
                 }
         );
-     //   });
 
     });
 
