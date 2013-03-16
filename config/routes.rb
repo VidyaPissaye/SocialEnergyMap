@@ -64,7 +64,8 @@ SocialEnergyMap::Application.routes.draw do
   match '/home/fb_parse_signed_request' => 'home#fb_parse_signed_request', :via => :post
   match '/home/get_user_likes' => 'home#get_user_likes', :via => :post
   match '/home/user_albums' => 'home#user_albums', :via => :get
-  match '/home/album_photos' => 'home#album_photos', :via => :get
+  match '/home/album_photos' => 'home#album_photos', :via => [:get, :post]
   match '/home/user_likes' => 'home#user_likes', :via => :get
+
 
 end

@@ -1,5 +1,4 @@
 
-<%= stylesheet_link_tag 'fp_photos', :media => "all", :rel => "stylesheet" %>
 <%= javascript_include_tag 'fb_photos' %>
 
 
@@ -15,7 +14,7 @@
         console.debug("Google Loaded");
         if(isFBLoaded){
             console.debug("Google & FB Loaded");
-            getuserlikes(<%=@photo_id%>);
+            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>");
         }
     });
 
@@ -28,7 +27,7 @@
                         isFBLoaded = true;
                         if(isGoogleLoaded){
                             console.debug("Google & FB Loaded");
-                            getuserlikes(<%=@photo_id%>);
+                            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>");
                         }
 
                     } else if (response.status === "not_authorized") {

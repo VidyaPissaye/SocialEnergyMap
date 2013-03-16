@@ -40,25 +40,46 @@ function getalbums (user_id, my_album) {
 
             document.body.appendChild(frame);
 
+            var page_title = document.createElement('div');
+            page_title.setAttribute("class", "page_title");
 
-            //    $(response[0].fql_result_set).each(function(index,value){
+            var title = document.createTextNode("Your Albums");
+            var div_albums = document.createElement('br');
+
+            page_title.appendChild(title);
+            frame.appendChild(page_title);
+            frame.appendChild(div_albums);
 
             for (var i=0; i<response[0].fql_result_set.length; i++) {
 
                 if(response[0].fql_result_set[i].cover_object_id != 0)
                 {
 
-                   // var cover_src = response[1].fql_result_set[cover_valid++].src;
 
                     var album_name = document.createTextNode(response[0].fql_result_set[i].name);
 
                     var album = document.createElement('a');
-                    album.album_id = response[0].fql_result_set[i].object_id;
+                    album_id = response[0].fql_result_set[i].object_id;
                     album.aid = response[0].fql_result_set[i].aid;
                     album.album_name = response[0].fql_result_set[i].name;
                     album.link = response[0].fql_result_set[i].link;
                     album.count = response[0].fql_result_set[i].photo_count;
-                    album.setAttribute("href", "/home/album_photos?album_id="+album.album_id+"&album="+album.album_name);
+                    album.setAttribute("href", "/home/album_photos?album_id="+album_id+"&album_name="+album.album_name);
+
+                   /* album.onclick = function() {
+                        $.ajax({
+                            type: "POST",
+                            url: '/home/album_photos',
+                            dataType: 'json',
+                            data: {
+                                album_id : album_id,
+                                album_name : album.album_name
+                            },
+                        success: function(res) {
+                            console.log(res);
+                        }
+                        });
+                    } */
 
                     var cover_photo = document.createElement('img');
                     cover_photo.src = response[1].fql_result_set[cover_valid++].src;
@@ -83,7 +104,7 @@ function getalbums (user_id, my_album) {
 
 }
 
-function getphotos(album_id)
+function getphotos(album_id, album_name)
 {
 
     FB.api(album_id + "/photos?limit=400&offset=0",function(photos){
@@ -97,12 +118,21 @@ function getphotos(album_id)
 
             document.body.appendChild(photo_frame);
 
-            for (var j=0; j<photos.data.length; j++){
+            var page_title = document.createElement('div');
+            page_title.setAttribute("class", "page_title");
 
+            var title = document.createTextNode("Album: "+album_name);
+            var div_albums = document.createElement('br');
+
+            page_title.appendChild(title);
+            photo_frame.appendChild(page_title);
+            photo_frame.appendChild(div_albums);
+
+            for (var j=0; j<photos.data.length; j++){
                 var photo = document.createElement('a');
                 photo.id = photos.data[j].id;
                 photo.name = photos.data[j].name;
-                photo.setAttribute("href", "/home/user_likes?photo_id="+photo.id+"&photo="+photo.name);
+                photo.setAttribute("href", "/home/user_likes?photo_id="+photo.id+"&photo_name="+photo.name);
 
                 var picture = document.createElement('img');
                 picture.src = photos.data[j].picture;
@@ -138,7 +168,7 @@ function getphotos(album_id)
 
 }
 
-function getuserlikes(photo_id){
+function getuserlikes(photo_id, photo_name){
 
 
 
@@ -147,12 +177,30 @@ function getuserlikes(photo_id){
             query: 'SELECT src, width=358, height=480 FROM photo_src WHERE photo_id="'+photo_id+'"'
         },
         function(photo) {
-
             var photo_frame = document.createElement('div');
             photo_frame.setAttribute("id", "image_frame");
             photo_frame.setAttribute("class", "cf");
 
             document.body.appendChild(photo_frame);
+
+            var pic_name;
+
+            if(photo_name) {
+                pic_name = photo_name;
+            }
+            else {
+                pic_name = "Untitled"
+            }
+
+            var page_title = document.createElement('div');
+            page_title.setAttribute("class", "page_title");
+
+            var title = document.createTextNode(pic_name);
+            var linebreak = document.createElement('br');
+
+            page_title.appendChild(title);
+            photo_frame.appendChild(page_title);
+            photo_frame.appendChild(linebreak);
 
             var image = document.createElement('div');
             image.setAttribute('class', 'picture');
@@ -181,10 +229,11 @@ function getuserlikes(photo_id){
                     var arr_length = 0;
 
 
+                    var profile = document.createElement('div');
+                    profile.setAttribute("class", "profile");
+
                     for(var i= 0, l=likes.data.length; i<l; i++) {
 
-                        var profile = document.createElement('div');
-                        profile.setAttribute("class", "profile");
 
                         FB.api({
                                 method: 'fql.query',
@@ -198,7 +247,6 @@ function getuserlikes(photo_id){
                                 profile_pic.id = response[0].id;
 
                                 var name = document.createTextNode(response[0].name);
-                                profile_pic.appendChild(name);
                                 profile.appendChild(profile_pic);
                                 profile.appendChild(name);
 

@@ -1,5 +1,4 @@
 
-<%= stylesheet_link_tag 'fp_photos', :media => "all", :rel => "stylesheet" %>
 <%= javascript_include_tag 'fb_photos' %>
 
 <div id="frame"></div><br>
@@ -11,7 +10,7 @@
         FB.getLoginStatus(
                 function(response) {
                     if (response.status === "connected") {
-                        getphotos(<%=@album_id%>);
+                        getphotos("<%=@album_id%>","<%=@album_name%>");
                     } else if (response.status === "not_authorized") {
                         //user is currently logged in to facebook, but has not authorized this app
                     } else {

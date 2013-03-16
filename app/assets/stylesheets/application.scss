@@ -1,0 +1,17 @@
+/*
+* adapted from SkeleSass V1.0
+* Kaushik Gopal
+* https://github.com/kaushikgopal/SkeleSass
+*
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+*/
+
+@import "helper";               // reset, variables and mixins
+// @import "font-awesome";         // font icons from fortawesome http://fortawesome.github.com/Font-Awesome/
+
+// @import "skeleton_framework";   // the skeleton responsive framework
+// @import "custom_layout";        // layout styling for your site
+
+// @import "base_style";           // styles for base elements like buttons, forms, etc.
+@import "custom_style";         // all other custom styling

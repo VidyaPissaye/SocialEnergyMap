@@ -1,12 +1,29 @@
 
-  <div id="Photo_albums">
+<div id="Photo_albums">
 
-  <h2> Choose to view your's or your friend's pictures </h2> <br></br>
-  <p> <a href="/home/user_albums?my_album=true">My albums</a>! </p>
-  <p> <%= link_to "My Friend's Albums", home_user_albums_path %>! </p>
+  <br></br>
+  <h3> Welcome to Social Energy Map! </h3> <br></br>
+  <p> Most Facebook users interact with each other through shared content,
+    primarily by "Like"ing or commenting.  By analyzing the data created
+    through these interactions, we can observe interesting behaviors and
+    trends that emerge among different groups of users.  This app
+    demonstrates this type of data analysis using users' demographic
+    information to establish group identities.  This project is an outcome
+    of collaborative efforts by researchers at Carnegie Mellon University
+    and the Stanford Peace Innovation Lab.  </p>
 
+    <p> What this App Does:
+    This app allows a user to explore the demographic information of users
+    who interact around her/his Facebook content (e.g., photos, videos,
+    etc.).  For example, you can look the breakdown of users who like a
+    photo by their home country or other information specified in their
+    profile.  Users can also perform similar analysis on their friends'
+    Facebook content, subject to permissions given by friends. </p>
 
-    <div id="chart_div" style="width:400; height:300"></div>
+    <p> Try it out: </p>
+    <p> <a href="/home/user_albums?my_album=true">Analyze my Facebook content</a>! </p>
+  <p> <%= link_to "Analyze a friend's Facebook content", home_user_albums_path %>! </p>
+
 
 </div>
 

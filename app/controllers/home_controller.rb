@@ -14,14 +14,22 @@ class HomeController < ApplicationController
   end
 
   def album_photos
+
   #  @album = Album.new
-    @album_id = params[:album_id]
-   # @album.name = params[:album]
+  #  @album.album_id = params["album_id"]
+  #  @album.name = params["album_name"]
+  #  @album.save
+
+   @album_name = params[:album_name]
+   @album_id = params[:album_id]
   end
+
 
   def user_likes
 
     @photo_id = params[:photo_id]
+    @photo_name = params[:photo_name]
+
   #  puts params.inspect
     #["access_token", "user_id"]
 
@@ -35,6 +43,10 @@ class HomeController < ApplicationController
     # HTTPI curl library
 
     #res = HTTPI.GET "fb/graph?accessToken#{params["access_token"]}"
+
+  end
+
+  def new
 
   end
 

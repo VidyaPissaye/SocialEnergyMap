@@ -1,0 +1,88 @@
+/*
+* SkeleSass V1.0
+* Kaushik Gopal
+* https://github.com/kaushikgopal/SkeleSass
+*
+* Free to use under the MIT license.
+* http://www.opensource.org/licenses/mit-license.php
+*/
+
+
+// ====================================================
+//   Table of Content
+// ====================================================
+// * Reset & Basics
+// * Variable Definitions
+// * Mixins
+// * Misc
+
+// ====================================================
+//   Reset & Basics
+// ====================================================
+
+@import "compass/reset";
+
+// ---- apply natural box layout ----------------------
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+// ====================================================
+//   Variable Definitions
+// ====================================================
+
+// ---- Color Palette ---------------------------------
+$green: #3E6F7D;
+$gray: #626262;
+$blue: #589DFB;
+$red: #FC0014;
+$cream: #E9E1CD;
+// ---- Type definitions ------------------------------
+$sans: 'Lato', "PT Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif: "PT Serif", Georgia, Times, "Times New Roman", serif !default;
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+
+// ---- Misc ------------------------------------------
+
+
+// ====================================================
+//   Mixins
+// ====================================================
+
+@mixin scale-with-grid{
+  max-width: 100%;
+  height: auto;
+}
+
+
+// ---- micro clearfix (http://nicolasgallagher.com/micro-clearfix-hack)
+
+@mixin clearfix-micro() {
+  & {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// ====================================================
+//   Misc Class helpers
+// ====================================================
+
+.remove-bottom { margin-bottom: 0 !important; }
+.half-bottom { margin-bottom: 10px !important; }
+.add-bottom { margin-bottom: 20px !important; }
+
+.txtac { text-align: center}
+.txtal { text-align: left}
+.txtar { text-align: right}
+
+// ---- Hide visually and from screenreaders, but maintain layout
+.invisible { visibility: hidden; }
+// ---- Hide from both screenreaders and browsers: h5bp.com/u
+.hidden { display: none !important; @extend .invisible; }
