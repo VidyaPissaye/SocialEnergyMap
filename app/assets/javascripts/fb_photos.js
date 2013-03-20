@@ -7,19 +7,6 @@
  */
 
 
-
-
-/*$(document).ready(function(){
-
-    console.log("reached");
-    $('#user_albums').click(function() {
-        getphotolikes(FPAPI.current_user_id);
-        console.log("Cool");
-
-    });
-
-});         */
-
 function getalbums (user_id, my_album) {
 
     FB.api({
