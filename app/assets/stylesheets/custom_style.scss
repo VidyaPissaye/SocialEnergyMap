@@ -288,6 +288,7 @@
 .page_title {
   font-size: 1.5em;
   font-weight: bold;
+  text-align: center;
 }
 
 #pie{
@@ -314,9 +315,15 @@
 .title
   {
   height: 25px;
-  overflow: hidden;
   text-overflow: ellipsis;
   width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile
+  {
+  text-align: left;
 }
 
 /*
@@ -376,14 +383,7 @@
   border: 4px groove #6A5ACD;
 }
 
-.profile
-  {
-  margin:1px;
-  height: 100px;
-  width: auto;
 
-
-}
 
 .profile img
   {

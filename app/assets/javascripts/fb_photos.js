@@ -64,22 +64,8 @@ function getalbums (user_id, my_album) {
                     album.album_name = response[0].fql_result_set[i].name;
                     album.link = response[0].fql_result_set[i].link;
                     album.count = response[0].fql_result_set[i].photo_count;
-                    album.setAttribute("href", "/home/album_photos?album_id="+album_id+"&album_name="+album.album_name);
 
-                   /* album.onclick = function() {
-                        $.ajax({
-                            type: "POST",
-                            url: '/home/album_photos',
-                            dataType: 'json',
-                            data: {
-                                album_id : album_id,
-                                album_name : album.album_name
-                            },
-                        success: function(res) {
-                            console.log(res);
-                        }
-                        });
-                    } */
+                    album.setAttribute("href", "/home/album_photos?album_id="+album_id+"&album_name="+album.album_name);
 
                     var cover_photo = document.createElement('img');
                     cover_photo.src = response[1].fql_result_set[cover_valid++].src;
@@ -121,7 +107,16 @@ function getphotos(album_id, album_name)
             var page_title = document.createElement('div');
             page_title.setAttribute("class", "page_title");
 
-            var title = document.createTextNode("Album: "+album_name);
+            var pic_name;
+
+            if(album_name == "undefined") {
+                pic_name = "Untitled"
+            }
+            else {
+                pic_name = album_name;
+            }
+
+            var title = document.createTextNode("Album: "+pic_name);
             var div_albums = document.createElement('br');
 
             page_title.appendChild(title);
@@ -185,11 +180,11 @@ function getuserlikes(photo_id, photo_name){
 
             var pic_name;
 
-            if(photo_name) {
-                pic_name = photo_name;
+            if(photo_name == "undefined") {
+                pic_name = "Untitled"
             }
             else {
-                pic_name = "Untitled"
+                pic_name = photo_name;
             }
 
             var page_title = document.createElement('div');
@@ -211,7 +206,7 @@ function getuserlikes(photo_id, photo_name){
             FB.api(photo_id + "/likes", function(likes) {
 
                 var heading = document.createElement('div');
-                heading.setAttribute("class", "title");
+                //heading.setAttribute("class", "title");
 
                 var chart_div = document.createElement('div');
                 chart_div.setAttribute("id", "pie");
@@ -221,7 +216,7 @@ function getuserlikes(photo_id, photo_name){
 
                 if(likes.data.length != 0) {
 
-                    var text = document.createTextNode("This picture has been liked by " + likes.data.length+" people:");
+                    var text = document.createTextNode("This picture has been liked by " + likes.data.length + " friend(s):");
                     heading.appendChild(text);
                     image.appendChild(heading);
 
@@ -323,11 +318,4 @@ function drawChart(country_count) {
     chart.draw(data, options);
 }
 
-function getdata(data){
-
-    $(data).each(function(index,value){
-        // console.log(value.aid + ' - '+ value.cover+ ' - '+ value.title );
-        $("#fb_albumb").append('<h3>'+ value.title +'</h3><a href="'+ value.link  +'" target="_blank" ><img src="'+ value.cover +'" title="'+ value.title +'" /></a><br/>');
-    })
-}
 

@@ -60,9 +60,8 @@
     function login() {
         FB.login(function(response) {
             if (response.authResponse) {
-
-               // getphotolikes(response.authResponse);
-
+                var accessToken = response.authResponse.accessToken;
+                var user_id = response.authResponse.userID;
             }
             else {
                 console.log('User cancelled login or did not fully authorize.');
