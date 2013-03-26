@@ -14,7 +14,7 @@ SocialEnergyMap::Application.configure do
   # Compress JavaScripts and CSS
   config.assets.compress = false
 
-  # Fallback to assets pipeline if a precompiled asset is missed
+  # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
 
   # Generate digests for assets URLs
