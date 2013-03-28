@@ -22,7 +22,6 @@
 
     <p> Try it out: </p>
     <p> <a href="/home/user_albums?my_album=true">Analyze my Facebook content</a>! </p>
-  <p> <%= link_to "Analyze a friend's Facebook content", home_user_albums_path %>! </p>
 
 
 </div>
@@ -66,7 +65,7 @@
             else {
                 console.log('User cancelled login or did not fully authorize.');
             }
-        }, {scope: 'user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location'});
+        }, {scope: 'user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location, user_hometown, friends_hometown'});
     }
   });
 </script>
