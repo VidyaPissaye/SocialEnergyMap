@@ -4,9 +4,8 @@
       <title>Social Energy Map</title>
 
       <%= csrf_meta_tag %>
-      
-      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-      
+
+      <%=  javascript_include_tag "application" %>
       <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
       <%= stylesheet_link_tag    "application", :media => "all" %>
 
@@ -27,7 +26,7 @@
                     </a>
                 </li>
                 <li><a href="/">Home</a></li>
-                <li><a href="/">About</a></li>
+                <li><a href="/about">About</a></li>
               </ul>
             </div>
         </div>
@@ -48,7 +47,7 @@
             window.fbAsyncInit = function() {
                 // init the FB JS SDK
                 FB.init({
-                    appId      : '370844846336833', // App ID from the App Dashboard
+                    appId      : '169011579889904', // App ID from the App Dashboard
                     channelUrl : 'http://localhost:3000/channel.html', // Channel File for x-domain communication
                     status     : true, // check the login status upon init?
                     cookie     : true, // set sessions cookies to allow your server to access the session?
@@ -76,6 +75,8 @@
                 js.src = "//connect.facebook.net/en_US/all.js";
                 ref.parentNode.insertBefore(js, ref);
             }(document));
+
+
 
         </script>
 

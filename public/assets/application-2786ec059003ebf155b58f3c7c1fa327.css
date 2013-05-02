@@ -630,7 +630,7 @@ legend span {
 /* line 294, ../../app/assets/stylesheets/custom_style.scss */
 #pie {
   float: right;
-  width: 340px;
+  width: 350px;
   height: 300px;
 }
 
@@ -664,9 +664,8 @@ legend span {
 
 /* line 332, ../../app/assets/stylesheets/custom_style.scss */
 .widget {
-  width: 375px;
-  height: 400px;
-  margin: 8px;
+  width: 360px;
+  margin: 20px;
   padding: 10px;
   background: #f3f1eb;
   border: 1px solid #dedbd1;
@@ -674,33 +673,26 @@ legend span {
   float: right;
 }
 
-/* line 343, ../../app/assets/stylesheets/custom_style.scss */
+/* line 342, ../../app/assets/stylesheets/custom_style.scss */
 .widget a {
   color: #222;
   text-decoration: none;
 }
 
-/* line 348, ../../app/assets/stylesheets/custom_style.scss */
+/* line 347, ../../app/assets/stylesheets/custom_style.scss */
 .widget a:hover {
   color: #009;
   text-decoration: underline;
 }
 
-/* line 353, ../../app/assets/stylesheets/custom_style.scss */
-.widget ul, ol {
-  margin-bottom: 10px;
-}
-
-/* line 357, ../../app/assets/stylesheets/custom_style.scss */
+/* line 354, ../../app/assets/stylesheets/custom_style.scss */
 .tabnav li {
   display: inline;
   list-style: none;
   padding-right: 5px;
-  line-height: 0px;
-  margin-bottom: 0px;
 }
 
-/* line 365, ../../app/assets/stylesheets/custom_style.scss */
+/* line 360, ../../app/assets/stylesheets/custom_style.scss */
 .tabnav li a {
   text-decoration: none;
   text-transform: uppercase;
@@ -710,30 +702,28 @@ legend span {
   outline: none;
 }
 
-/* line 377, ../../app/assets/stylesheets/custom_style.scss */
-.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-active a {
+/* line 371, ../../app/assets/stylesheets/custom_style.scss */
+.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-selected a {
   background: #dedbd1;
   color: #222;
   text-decoration: none;
 }
 
-/* line 383, ../../app/assets/stylesheets/custom_style.scss */
+/* line 377, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv {
   margin-top: 2px;
   background: #fff;
   border: 1px solid #dedbd1;
   padding: 5px;
-  position: absolute;
-  overflow: hidden;
 }
 
-/* line 392, ../../app/assets/stylesheets/custom_style.scss */
+/* line 384, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv li {
   list-style-image: url("star.png");
   margin-left: 20px;
 }
 
-/* line 397, ../../app/assets/stylesheets/custom_style.scss */
+/* line 389, ../../app/assets/stylesheets/custom_style.scss */
 .ui-tabs-hide {
   display: none;
 }
@@ -742,13 +732,13 @@ legend span {
 ================================================== 
  # CUSTOM STYLES
 ==================================================     */
-/* line 411, ../../app/assets/stylesheets/custom_style.scss */
+/* line 403, ../../app/assets/stylesheets/custom_style.scss */
 html, body, #sidebar, #content {
   padding: 1em;
   height: 100%;
 }
 
-/* line 416, ../../app/assets/stylesheets/custom_style.scss */
+/* line 408, ../../app/assets/stylesheets/custom_style.scss */
 #banner {
   margin-bottom: 0.1em;
   padding: 0.5em 0;
@@ -757,7 +747,7 @@ html, body, #sidebar, #content {
   text-align: center;
 }
 
-/* line 424, ../../app/assets/stylesheets/custom_style.scss */
+/* line 416, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar {
   font-weight: 700;
   float: left;
@@ -765,19 +755,19 @@ html, body, #sidebar, #content {
   background-color: #3e6f7d;
   border-right: 1px solid #626262;
 }
-/* line 434, ../../app/assets/stylesheets/custom_style.scss */
+/* line 426, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar h1 {
   font-size: 30px;
   color: white;
   text-align: center;
   text-shadow: 0px 0px 1px #aaaaaa;
 }
-/* line 445, ../../app/assets/stylesheets/custom_style.scss */
+/* line 437, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li {
   padding: 0;
   margin: 0;
 }
-/* line 452, ../../app/assets/stylesheets/custom_style.scss */
+/* line 444, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li a {
   display: block;
   padding: 0.5em;
@@ -785,12 +775,12 @@ html, body, #sidebar, #content {
   border-bottom: 1px solid #e9e1cd;
   color: #e9e1cd;
 }
-/* line 459, ../../app/assets/stylesheets/custom_style.scss */
+/* line 451, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li a:hover {
   color: #589dfb;
 }
 
-/* line 470, ../../app/assets/stylesheets/custom_style.scss */
+/* line 462, ../../app/assets/stylesheets/custom_style.scss */
 #content {
   width: 70%;
   float: left;

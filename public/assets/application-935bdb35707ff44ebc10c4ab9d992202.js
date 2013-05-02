@@ -24784,7 +24784,6 @@ function getuserlikes(photo_id, photo_name){
 
                 var tabs = document.getElementById("tabvanilla");
                 $('#tabvanilla > ul').tabs({ fx: { height: 'toggle', opacity: 'toggle' } });
-                $('#tabvanilla > ul').tabs({ selected: 1 });
 
                 var chart_div = document.createElement('div');
                 chart_div.setAttribute("id", "pie");
@@ -24861,18 +24860,13 @@ function getuserlikes(photo_id, photo_name){
 
 
                                     $("#tabvanilla").tabs();
-                                    var Hometowntab = document.getElementById("HomeTown");
-                                    Hometowntab.appendChild(pie_chart);
-                                    tabs.appendChild(Hometowntab);
-
-                                    drawChart(country_hash, "Where are your friends from");
 
                                     $("#tabvanilla a[href=#HomeTown]").click(function()
                                     {
                                         var Hometowntab = document.getElementById("HomeTown");
                                         Hometowntab.appendChild(pie_chart);
                                         tabs.appendChild(Hometowntab);
-                                        drawChart(country_hash, "Where are your friends from");
+                                        drawChart(country_hash);
                                     });
 
                                     $("#tabvanilla a[href=#Gender]").click(function()
@@ -24880,7 +24874,7 @@ function getuserlikes(photo_id, photo_name){
                                         var Gendertab = document.getElementById("Gender");
                                         Gendertab.appendChild(pie_chart);
                                         tabs.appendChild(Gendertab);
-                                        drawChart(gender_hash, "what is the sex ratio of your friends");
+                                        drawChart(gender_hash);
                                     });
 
                                 }
@@ -24909,7 +24903,7 @@ function getuserlikes(photo_id, photo_name){
 // Creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
-function drawChart(country_count, title_string) {
+function drawChart(country_count) {
 
     // Create the data table.
     var data = new google.visualization.DataTable();
@@ -24922,9 +24916,9 @@ function drawChart(country_count, title_string) {
     }
 
     // Set chart options
-    var options = {'title':title_string,
-        'width':340,
-        'height':300};
+    var options = {'title':'Where are your friends from?',
+        'width':350,
+        'height':290};
 
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById("pie"));

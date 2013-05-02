@@ -24864,7 +24864,6 @@ function getuserlikes(photo_id, photo_name){
                                     var Hometowntab = document.getElementById("HomeTown");
                                     Hometowntab.appendChild(pie_chart);
                                     tabs.appendChild(Hometowntab);
-
                                     drawChart(country_hash, "Where are your friends from");
 
                                     $("#tabvanilla a[href=#HomeTown]").click(function()

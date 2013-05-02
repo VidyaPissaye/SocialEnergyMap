@@ -6,7 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 
-
 function getalbums (user_id, my_album) {
 
     FB.api({
@@ -18,6 +17,8 @@ function getalbums (user_id, my_album) {
             }
         },
         function(response) {
+
+            console.debug(user_id);
 
             var cover_valid = 0;
             $("#image_frame").html("");
@@ -168,7 +169,7 @@ function getuserlikes(photo_id, photo_name){
             var pic_name;
 
             if(photo_name == "undefined") {
-                pic_name = "Untitled"
+                pic_name = "Untitled";
             }
             else {
                 pic_name = photo_name;
@@ -193,13 +194,15 @@ function getuserlikes(photo_id, photo_name){
             FB.api(photo_id + "/likes", function(likes) {
 
                 var heading = document.createElement('div');
-                //heading.setAttribute("class", "title");
+
+                var tabs = document.getElementById("tabvanilla");
+                $('#tabvanilla > ul').tabs({ fx: { height: 'toggle', opacity: 'toggle' } });
+                $('#tabvanilla > ul').tabs({ selected: 1 });
 
                 var chart_div = document.createElement('div');
                 chart_div.setAttribute("id", "pie");
 
                 photo_frame.appendChild(chart_div);
-
 
                 if(likes.data.length != 0) {
 
@@ -208,6 +211,7 @@ function getuserlikes(photo_id, photo_name){
                     image.appendChild(heading);
 
                     var country_hash = {};
+                    var gender_hash = {};
                     var arr_length = 0;
 
 
@@ -235,6 +239,15 @@ function getuserlikes(photo_id, photo_name){
                                 var linebreak = document.createElement('br');
                                 profile.appendChild(linebreak);
 
+                                if(response[0].sex) {
+                                    if(gender_hash[response[0].sex]) {
+                                        gender_hash[response[0].sex] = gender_hash[response[0].sex] + 1;
+                                    }
+                                    else {
+                                        gender_hash[response[0].sex] = 1;
+                                    }
+                                }
+
                                 if(response[0].hometown_location) {
                                     if(country_hash[response[0].hometown_location.country]){
                                         country_hash[response[0].hometown_location.country] = country_hash[response[0].hometown_location.country] + 1;
@@ -257,15 +270,39 @@ function getuserlikes(photo_id, photo_name){
 
                                 if (arr_length == likes.data.length)
                                 {
-                                    drawChart(country_hash);
+                                    var pie_chart = document.getElementById("pie");
+
+
+                                    $("#tabvanilla").tabs();
+                                    var Hometowntab = document.getElementById("HomeTown");
+                                    Hometowntab.appendChild(pie_chart);
+                                    tabs.appendChild(Hometowntab);
+
+                                    drawChart(country_hash, "Where are your friends from?");
+
+                                    $("#tabvanilla a[href=#HomeTown]").click(function()
+                                    {
+                                        var Hometowntab = document.getElementById("HomeTown");
+                                        Hometowntab.appendChild(pie_chart);
+                                        tabs.appendChild(Hometowntab);
+                                        drawChart(country_hash, "Where are your friends from?");
+                                    });
+
+                                    $("#tabvanilla a[href=#Gender]").click(function()
+                                    {
+                                        var Gendertab = document.getElementById("Gender");
+                                        Gendertab.appendChild(pie_chart);
+                                        tabs.appendChild(Gendertab);
+                                        drawChart(gender_hash, "what is the sex ratio of your friends?");
+                                    });
+
                                 }
-
-
-                            } );
-
+                        });
                     }
 
                     image.appendChild(profile);
+
+
                 }
                 else {
 
@@ -275,15 +312,17 @@ function getuserlikes(photo_id, photo_name){
 
                 }
                 photo_frame.appendChild(image);
+                photo_frame.appendChild(tabs);
             });
         });
 
 }
 
+
 // Creates and populates a data table,
 // instantiates the pie chart, passes in the data and
 // draws it.
-function drawChart(country_count) {
+function drawChart(country_count, title_string) {
 
     // Create the data table.
     var data = new google.visualization.DataTable();
@@ -296,13 +335,14 @@ function drawChart(country_count) {
     }
 
     // Set chart options
-    var options = {'title':'Where are your friends from?',
-        'width':400,
+    var options = {'title':title_string,
+        'width':340,
         'height':300};
 
     // Instantiate and draw our chart, passing in some options.
-    var chart = new google.visualization.PieChart(document.getElementById('pie'));
+    var chart = new google.visualization.PieChart(document.getElementById("pie"));
     chart.draw(data, options);
+
 }
 
 

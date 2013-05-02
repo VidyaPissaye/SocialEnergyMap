@@ -710,14 +710,14 @@ legend span {
   outline: none;
 }
 
-/* line 377, ../../app/assets/stylesheets/custom_style.scss */
-.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-active a {
+/* line 376, ../../app/assets/stylesheets/custom_style.scss */
+.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-selected a {
   background: #dedbd1;
   color: #222;
   text-decoration: none;
 }
 
-/* line 383, ../../app/assets/stylesheets/custom_style.scss */
+/* line 382, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv {
   margin-top: 2px;
   background: #fff;
@@ -727,13 +727,19 @@ legend span {
   overflow: hidden;
 }
 
-/* line 392, ../../app/assets/stylesheets/custom_style.scss */
+/* line 391, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv li {
   list-style-image: url("star.png");
   margin-left: 20px;
 }
 
-/* line 397, ../../app/assets/stylesheets/custom_style.scss */
+/* line 396, ../../app/assets/stylesheets/custom_style.scss */
+.tabdiv ul li:active a {
+  background: #000;
+  color: #FFF;
+}
+
+/* line 398, ../../app/assets/stylesheets/custom_style.scss */
 .ui-tabs-hide {
   display: none;
 }
@@ -742,13 +748,13 @@ legend span {
 ================================================== 
  # CUSTOM STYLES
 ==================================================     */
-/* line 411, ../../app/assets/stylesheets/custom_style.scss */
+/* line 412, ../../app/assets/stylesheets/custom_style.scss */
 html, body, #sidebar, #content {
   padding: 1em;
   height: 100%;
 }
 
-/* line 416, ../../app/assets/stylesheets/custom_style.scss */
+/* line 417, ../../app/assets/stylesheets/custom_style.scss */
 #banner {
   margin-bottom: 0.1em;
   padding: 0.5em 0;
@@ -757,7 +763,7 @@ html, body, #sidebar, #content {
   text-align: center;
 }
 
-/* line 424, ../../app/assets/stylesheets/custom_style.scss */
+/* line 425, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar {
   font-weight: 700;
   float: left;
@@ -765,19 +771,19 @@ html, body, #sidebar, #content {
   background-color: #3e6f7d;
   border-right: 1px solid #626262;
 }
-/* line 434, ../../app/assets/stylesheets/custom_style.scss */
+/* line 435, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar h1 {
   font-size: 30px;
   color: white;
   text-align: center;
   text-shadow: 0px 0px 1px #aaaaaa;
 }
-/* line 445, ../../app/assets/stylesheets/custom_style.scss */
+/* line 446, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li {
   padding: 0;
   margin: 0;
 }
-/* line 452, ../../app/assets/stylesheets/custom_style.scss */
+/* line 453, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li a {
   display: block;
   padding: 0.5em;
@@ -785,12 +791,12 @@ html, body, #sidebar, #content {
   border-bottom: 1px solid #e9e1cd;
   color: #e9e1cd;
 }
-/* line 459, ../../app/assets/stylesheets/custom_style.scss */
+/* line 460, ../../app/assets/stylesheets/custom_style.scss */
 #sidebar #navigation li a:hover {
   color: #589dfb;
 }
 
-/* line 470, ../../app/assets/stylesheets/custom_style.scss */
+/* line 471, ../../app/assets/stylesheets/custom_style.scss */
 #content {
   width: 70%;
   float: left;

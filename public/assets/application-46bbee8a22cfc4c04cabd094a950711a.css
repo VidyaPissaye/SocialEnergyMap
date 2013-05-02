@@ -630,11 +630,70 @@ legend span {
 /* line 294, ../../app/assets/stylesheets/custom_style.scss */
 #pie {
   float: right;
-  width: 340px;
-  height: 300px;
+  width: 500px;
 }
 
-/* line 301, ../../app/assets/stylesheets/custom_style.scss */
+                     /*#DemographicTab {
+width:500px;
+padding:15px;
+background-color:#2e2e2e;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.tabs{
+height:30px;
+}
+
+.tabs > ul{
+font-size: 1em;
+list-style:none;
+}
+.tabs > ul > li{
+margin:0 2px 0 0;
+padding:7px 10px;
+display:block;
+float:left;
+color:#FFF;
+-webkit-user-select: none;
+-moz-user-select: none;
+user-select: none;
+-moz-border-radius-topleft: 4px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-bottomright: 0px;
+-moz-border-radius-bottomleft: 0px;
+border-top-left-radius:4px;
+border-top-right-radius: 4px;
+border-bottom-right-radius: 0px;
+border-bottom-left-radius: 0px;
+background: #C9C9C9; /* old browsers */
+                     /*.tabs > ul > li:hover{
+background: #FFFFFF; /* old browsers */
+                       /* cursor:pointer;
+  color: #333;
+}
+
+.tabs > ul > li.tabActiveHeader{
+  background: #FFFFFF; /* old browsers */
+                       /* cursor:pointer;
+  color: #333;
+}
+
+.tabscontent {
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-topright: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding:10px 10px 25px;
+  background: #FFFFFF; /* old browsers */
+ /* margin:0;
+  color:#333;
+}  */
+/* line 372, ../../app/assets/stylesheets/custom_style.scss */
 .picture {
   margin: 2px;
   height: auto;
@@ -642,13 +701,13 @@ legend span {
   float: left;
 }
 
-/* line 310, ../../app/assets/stylesheets/custom_style.scss */
+/* line 381, ../../app/assets/stylesheets/custom_style.scss */
 .picture img {
   display: inline;
   margin: 5px;
 }
 
-/* line 318, ../../app/assets/stylesheets/custom_style.scss */
+/* line 389, ../../app/assets/stylesheets/custom_style.scss */
 .title {
   height: 25px;
   text-overflow: ellipsis;
@@ -657,16 +716,145 @@ legend span {
   overflow: hidden;
 }
 
-/* line 327, ../../app/assets/stylesheets/custom_style.scss */
+/* line 398, ../../app/assets/stylesheets/custom_style.scss */
 .profile {
   text-align: left;
 }
 
-/* line 332, ../../app/assets/stylesheets/custom_style.scss */
+/*
+================================================== 
+ # CUSTOM STYLES
+================================================== 
+
+
+
+
+
+
+#sidebar {
+  width: 1280px;
+
+  padding: 0.5em 0;
+  border-bottom: 2px solid #d3d3d3;
+  font-size: 1.8em ;
+
+  text-align: center;
+}
+
+
+.title
+  {
+  width: 300px;
+  margin: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  color: #00008B;
+}
+
+.names
+  {
+  width: 300px;
+  margin: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: left;
+  color: #00008B;
+}
+
+.picture
+  {
+  margin: 2px;
+  height: auto;
+  width: auto;
+  float: left;
+
+}
+
+.picture img
+  {
+  display: inline;
+  margin: 5px;
+  border: 4px groove #6A5ACD;
+}
+
+
+
+.profile img
+  {
+  margin: 2px;
+  border: 1px solid #6A5ACD;
+  height:30px;
+  width:25px;
+}
+
+
+#pie {
+  width:400px;
+  height:300px;
+}
+
+
+*/
+/* line 479, ../../app/assets/stylesheets/custom_style.scss */
+html, body, #sidebar, #content {
+  padding: 1em;
+  height: 100%;
+}
+
+/* line 484, ../../app/assets/stylesheets/custom_style.scss */
+#banner {
+  margin-bottom: 0.1em;
+  padding: 0.5em 0;
+  color: white;
+  background-color: #3E6F7D;
+  text-align: center;
+}
+
+/* line 492, ../../app/assets/stylesheets/custom_style.scss */
+#sidebar {
+  font-weight: 700;
+  float: left;
+  width: 15%;
+  background-color: #3e6f7d;
+  border-right: 1px solid #626262;
+}
+/* line 502, ../../app/assets/stylesheets/custom_style.scss */
+#sidebar h1 {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  text-shadow: 0px 0px 1px #aaaaaa;
+}
+/* line 513, ../../app/assets/stylesheets/custom_style.scss */
+#sidebar #navigation li {
+  padding: 0;
+  margin: 0;
+}
+/* line 520, ../../app/assets/stylesheets/custom_style.scss */
+#sidebar #navigation li a {
+  display: block;
+  padding: 0.5em;
+  text-decoration: none;
+  border-bottom: 1px solid #e9e1cd;
+  color: #e9e1cd;
+}
+/* line 527, ../../app/assets/stylesheets/custom_style.scss */
+#sidebar #navigation li a:hover {
+  color: #589dfb;
+}
+
+/* line 538, ../../app/assets/stylesheets/custom_style.scss */
+#content {
+  width: 70%;
+  float: left;
+  padding-left: 3em;
+}
+
+/* line 546, ../../app/assets/stylesheets/custom_style.scss */
 .widget {
-  width: 375px;
-  height: 400px;
-  margin: 8px;
+  width: 310px;
+  margin: 20px;
   padding: 10px;
   background: #f3f1eb;
   border: 1px solid #dedbd1;
@@ -674,33 +862,26 @@ legend span {
   float: right;
 }
 
-/* line 343, ../../app/assets/stylesheets/custom_style.scss */
+/* line 556, ../../app/assets/stylesheets/custom_style.scss */
 .widget a {
   color: #222;
   text-decoration: none;
 }
 
-/* line 348, ../../app/assets/stylesheets/custom_style.scss */
+/* line 561, ../../app/assets/stylesheets/custom_style.scss */
 .widget a:hover {
   color: #009;
   text-decoration: underline;
 }
 
-/* line 353, ../../app/assets/stylesheets/custom_style.scss */
-.widget ul, ol {
-  margin-bottom: 10px;
-}
-
-/* line 357, ../../app/assets/stylesheets/custom_style.scss */
+/* line 566, ../../app/assets/stylesheets/custom_style.scss */
 .tabnav li {
   display: inline;
   list-style: none;
   padding-right: 5px;
-  line-height: 0px;
-  margin-bottom: 0px;
 }
 
-/* line 365, ../../app/assets/stylesheets/custom_style.scss */
+/* line 572, ../../app/assets/stylesheets/custom_style.scss */
 .tabnav li a {
   text-decoration: none;
   text-transform: uppercase;
@@ -710,89 +891,28 @@ legend span {
   outline: none;
 }
 
-/* line 377, ../../app/assets/stylesheets/custom_style.scss */
-.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-active a {
+/* line 581, ../../app/assets/stylesheets/custom_style.scss */
+.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-selected a {
   background: #dedbd1;
   color: #222;
   text-decoration: none;
 }
 
-/* line 383, ../../app/assets/stylesheets/custom_style.scss */
+/* line 587, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv {
   margin-top: 2px;
   background: #fff;
   border: 1px solid #dedbd1;
   padding: 5px;
-  position: absolute;
-  overflow: hidden;
 }
 
-/* line 392, ../../app/assets/stylesheets/custom_style.scss */
+/* line 594, ../../app/assets/stylesheets/custom_style.scss */
 .tabdiv li {
   list-style-image: url("star.png");
   margin-left: 20px;
 }
 
-/* line 397, ../../app/assets/stylesheets/custom_style.scss */
+/* line 599, ../../app/assets/stylesheets/custom_style.scss */
 .ui-tabs-hide {
   display: none;
-}
-
-/*
-================================================== 
- # CUSTOM STYLES
-==================================================     */
-/* line 411, ../../app/assets/stylesheets/custom_style.scss */
-html, body, #sidebar, #content {
-  padding: 1em;
-  height: 100%;
-}
-
-/* line 416, ../../app/assets/stylesheets/custom_style.scss */
-#banner {
-  margin-bottom: 0.1em;
-  padding: 0.5em 0;
-  color: white;
-  background-color: #3E6F7D;
-  text-align: center;
-}
-
-/* line 424, ../../app/assets/stylesheets/custom_style.scss */
-#sidebar {
-  font-weight: 700;
-  float: left;
-  width: 15%;
-  background-color: #3e6f7d;
-  border-right: 1px solid #626262;
-}
-/* line 434, ../../app/assets/stylesheets/custom_style.scss */
-#sidebar h1 {
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  text-shadow: 0px 0px 1px #aaaaaa;
-}
-/* line 445, ../../app/assets/stylesheets/custom_style.scss */
-#sidebar #navigation li {
-  padding: 0;
-  margin: 0;
-}
-/* line 452, ../../app/assets/stylesheets/custom_style.scss */
-#sidebar #navigation li a {
-  display: block;
-  padding: 0.5em;
-  text-decoration: none;
-  border-bottom: 1px solid #e9e1cd;
-  color: #e9e1cd;
-}
-/* line 459, ../../app/assets/stylesheets/custom_style.scss */
-#sidebar #navigation li a:hover {
-  color: #589dfb;
-}
-
-/* line 470, ../../app/assets/stylesheets/custom_style.scss */
-#content {
-  width: 70%;
-  float: left;
-  padding-left: 3em;
 }
