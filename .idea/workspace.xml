@@ -19,10 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="fb_photos.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fb_photos.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="213" column="67" selection-start="7250" selection-end="7250" vertical-scroll-proportion="0.5956679">
+            <state line="205" column="34" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="production.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="32" selection-start="546" selection-end="546" vertical-scroll-proportion="0.37037036">
               <folding />
             </state>
           </provider>
@@ -67,7 +76,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="12" selection-start="2965" selection-end="2965" vertical-scroll-proportion="0.0">
+            <state line="49" column="49" selection-start="1554" selection-end="1554" vertical-scroll-proportion="-10.0">
               <folding />
             </state>
           </provider>
@@ -91,17 +100,17 @@
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$USER_HOME$/Documents/CMU/Metrics for S:W Engineers/Task2/TeamCourseConfigurationAndAssignments/CMUEducation/app/views/courses/_form_configure.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/home/about.erb" />
         <option value="$USER_HOME$/Documents/CMU/Metrics for S:W Engineers/Task4/cmusv/config/database.yml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/user_likes.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom_style.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/fb_photos.js" />
+        <option value="$PROJECT_DIR$/config/environments/production.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -788,11 +797,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="55" selection-start="1842" selection-end="1842" vertical-scroll-proportion="0.36979166" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/about.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="4" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.7068063" />
@@ -838,13 +842,6 @@
         <state line="15" column="2" selection-start="546" selection-end="546" vertical-scroll-proportion="0.39964476" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="12" selection-start="2965" selection-end="2965" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="24" selection-start="626" selection-end="626" vertical-scroll-proportion="0.0">
@@ -875,7 +872,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="213" column="67" selection-start="7250" selection-end="7250" vertical-scroll-proportion="0.5956679">
+        <state line="205" column="34" selection-start="6896" selection-end="6896" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="49" selection-start="1554" selection-end="1554" vertical-scroll-proportion="-10.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="32" selection-start="546" selection-end="546" vertical-scroll-proportion="0.37037036">
           <folding />
         </state>
       </provider>
