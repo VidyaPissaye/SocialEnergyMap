@@ -22,7 +22,7 @@
       <file leaf-file-name="fb_photos.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="351" column="57" selection-start="15270" selection-end="15270" vertical-scroll-proportion="-11.346154">
+            <state line="344" column="54" selection-start="14717" selection-end="14717" vertical-scroll-proportion="-7.3076925">
               <folding />
             </state>
           </provider>
@@ -94,7 +94,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.6069364">
+            <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="1.7369943">
               <folding />
             </state>
           </provider>
@@ -902,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="351" column="57" selection-start="15270" selection-end="15270" vertical-scroll-proportion="-11.346154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/user_likes.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="27" selection-start="460" selection-end="460" vertical-scroll-proportion="-1.875">
@@ -916,9 +909,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="344" column="54" selection-start="14717" selection-end="14717" vertical-scroll-proportion="-7.3076925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.6069364">
+        <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="1.7369943">
           <folding />
         </state>
       </provider>
