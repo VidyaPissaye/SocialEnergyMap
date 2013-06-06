@@ -24,6 +24,7 @@ class HomeController < ApplicationController
 
     @photo_id = params[:photo_id]
     @photo_name = params[:photo_name]
+    @photo_from = params[:photo_from]
 
   end
 

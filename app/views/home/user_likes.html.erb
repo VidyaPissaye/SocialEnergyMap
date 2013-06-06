@@ -8,6 +8,7 @@
         <ul class="tabnav">
           <li><a href="#HomeTown">HomeTown</a></li>
           <li><a href="#Gender">Gender</a></li>
+          <li><a href="#Relationship">Relationship</a></li>
         </ul>
 
       <div id="HomeTown" class="tabdiv">
@@ -15,6 +16,10 @@
       </div>
 
       <div id="Gender" class="tabdiv">
+        <p></p>
+      </div>
+
+      <div id="Relationship" class="tabdiv">
         <p></p>
       </div>
 
@@ -37,7 +42,7 @@
         console.debug("Google Loaded");
         if(isFBLoaded){
             console.debug("Google & FB Loaded");
-            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>");
+            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>);
         }
     });
 
@@ -50,7 +55,7 @@
                         isFBLoaded = true;
                         if(isGoogleLoaded){
                             console.debug("Google & FB Loaded");
-                            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>");
+                            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>);
                         }
 
                     } else if (response.status === "not_authorized") {

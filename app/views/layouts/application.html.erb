@@ -21,7 +21,7 @@
               <ul>
                 <li>
                     <a style="text-align:center">
-                        <fb:login-button autologoutlink="true" onclick = "OnRequestPermission();" perms="user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location, user_hometown, friends_hometown">
+                        <fb:login-button autologoutlink="true" onclick = "OnRequestPermission();" perms="user_likes, user_photos, friends_likes, friends_photos, user_location, friends_location, user_hometown, friends_hometown, user_relationships">
                         </fb:login-button>
                     </a>
                 </li>
@@ -47,7 +47,7 @@
             window.fbAsyncInit = function() {
                 // init the FB JS SDK
                 FB.init({
-                    appId      : '370844846336833', // App ID from the App Dashboard
+                    appId      : '169011579889904', // App ID from the App Dashboard
                     channelUrl : 'http://localhost:3000/channel.html', // Channel File for x-domain communication
                     status     : true, // check the login status upon init?
                     cookie     : true, // set sessions cookies to allow your server to access the session?
