@@ -64,10 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_likes.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_likes.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/user_likes.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="27" selection-start="460" selection-end="460" vertical-scroll-proportion="0.116883114">
+            <state line="21" column="27" selection-start="460" selection-end="460" vertical-scroll-proportion="-1.875">
               <folding />
             </state>
           </provider>
@@ -91,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="71" selection-start="341" selection-end="341" vertical-scroll-proportion="13.2">
+            <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.6069364">
               <folding />
             </state>
           </provider>
@@ -134,10 +134,10 @@
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/home/about.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/fb_photos.js" />
         <option value="$PROJECT_DIR$/app/views/home/user_likes.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -902,13 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="71" selection-start="341" selection-end="341" vertical-scroll-proportion="13.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/fb_photos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="351" column="57" selection-start="15270" selection-end="15270" vertical-scroll-proportion="-11.346154">
@@ -918,7 +911,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/user_likes.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="27" selection-start="460" selection-end="460" vertical-scroll-proportion="0.116883114">
+        <state line="21" column="27" selection-start="460" selection-end="460" vertical-scroll-proportion="-1.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="49" selection-start="1574" selection-end="1574" vertical-scroll-proportion="0.6069364">
           <folding />
         </state>
       </provider>
