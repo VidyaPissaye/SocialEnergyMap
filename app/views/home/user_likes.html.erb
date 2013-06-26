@@ -42,7 +42,7 @@
         console.debug("Google Loaded");
         if(isFBLoaded){
             console.debug("Google & FB Loaded");
-            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>);
+            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>, "<%=@photo_source.html_safe%>");
         }
     });
 
@@ -55,7 +55,7 @@
                         isFBLoaded = true;
                         if(isGoogleLoaded){
                             console.debug("Google & FB Loaded");
-                            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>);
+                            getuserlikes(<%=@photo_id%>, "<%=@photo_name.html_safe%>", <%=@photo_from%>, "<%=@photo_source.html_safe%>");
                         }
 
                     } else if (response.status === "not_authorized") {

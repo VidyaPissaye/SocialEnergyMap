@@ -111,8 +111,11 @@ function getphotos(album_id, album_name)
                 photo.id = photos.data[j].id;
                 photo.name = photos.data[j].name;
                 photo.from = photos.data[j].from.id;
+                photo.source = photos.data[j].images[4].source;
 
-                photo.setAttribute("href", "/home/user_likes?photo_id="+photo.id+"&photo_name="+photo.name+"&photo_from="+photo.from);
+                console.log(photos.data[j].images[4].source);
+
+                photo.setAttribute("href", "/home/user_likes?photo_id="+photo.id+"&photo_name="+photo.name+"&photo_from="+photo.from+"&photo_source="+photo.source);
 
                 var picture = document.createElement('img');
                 picture.src = photos.data[j].picture;
@@ -148,13 +151,18 @@ function getphotos(album_id, album_name)
 
 }
 
-function getuserlikes(photo_id, photo_name, photo_from){
+function getuserlikes(photo_id, photo_name, photo_from, photo_source){
 
-   FB.api({
+
+
+
+    /*FB.api({
             method: 'fql.query',
-            query: 'SELECT src, width=358, height=480 FROM photo_src WHERE photo_id="'+photo_id+'"'
+            query: 'SELECT src, width=358, height=480 FROM photo_src WHERE photo_id="'+photo_id+'"' // , width=358, height=480
         },
-        function(photo) {
+        function(photo) {         */
+
+
             var photo_frame = document.createElement('div');
             photo_frame.setAttribute("id", "image_frame");
             photo_frame.setAttribute("class", "cf");
@@ -183,7 +191,10 @@ function getuserlikes(photo_id, photo_name, photo_from){
             var image = document.createElement('div');
             image.setAttribute('class', 'picture');
             var pic = document.createElement('img');
-            pic.src = photo[4].src;       // Photo Size = "width": 358,  "height": 480
+
+        //    pic.src = photo[4].src;       // Photo Size = "width": 358,  "height": 480
+
+            pic.src = photo_source;
             image.appendChild(pic);
 
             FB.api(photo_id + "/likes", function(likes) {
@@ -212,7 +223,8 @@ function getuserlikes(photo_id, photo_name, photo_from){
 
                     var profile = document.createElement('div');
                     profile.setAttribute("class", "profile");
-                    console.log(photo_from);
+
+
 
                    // FB.api(photo_from + "/friends", function(friends) {
                     FB.api({
@@ -225,9 +237,8 @@ function getuserlikes(photo_id, photo_name, photo_from){
                     },
                     function(relationship) {
 
-                        console.log(relationship[0].fql_result_set.length);
 
-                            for(var i = 0, l=likes.data.length; i<l; i++) {
+                        for(var i = 0, l=likes.data.length; i<l; i++) {
 
                             FB.api({
                                     method: 'fql.query',
@@ -319,7 +330,6 @@ function getuserlikes(photo_id, photo_name, photo_from){
                                     {
                                         var pie_chart = document.getElementById("pie");
 
-
                                         $("#tabvanilla").tabs();
                                         var Hometowntab = document.getElementById("HomeTown");
                                         Hometowntab.appendChild(pie_chart);
@@ -370,7 +380,7 @@ function getuserlikes(photo_id, photo_name, photo_from){
                 photo_frame.appendChild(image);
                 photo_frame.appendChild(tabs);
             });
-        });
+   //     });
 
 }
 
