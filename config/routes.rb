@@ -67,6 +67,8 @@ SocialEnergyMap::Application.routes.draw do
   match '/home/user_albums' => 'home#user_albums', :via => :get
   match '/home/album_photos' => 'home#album_photos', :via => :get
   match '/home/user_likes' => 'home#user_likes', :via => :get
+  match '/home/predict' => 'home#predict', :via => [:get, :post]
+  match '/home/prediction_check_status' => 'home#prediction_check_status', :via => :get
 
 
 end

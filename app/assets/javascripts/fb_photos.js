@@ -113,8 +113,6 @@ function getphotos(album_id, album_name)
                 photo.from = photos.data[j].from.id;
                 photo.source = photos.data[j].images[4].source;
 
-                console.log(photos.data[j].images[4].source);
-
                 photo.setAttribute("href", "/home/user_likes?photo_id="+photo.id+"&photo_name="+photo.name+"&photo_from="+photo.from+"&photo_source="+photo.source);
 
                 var picture = document.createElement('img');
@@ -153,15 +151,11 @@ function getphotos(album_id, album_name)
 
 function getuserlikes(photo_id, photo_name, photo_from, photo_source){
 
-
-
-
     /*FB.api({
             method: 'fql.query',
             query: 'SELECT src, width=358, height=480 FROM photo_src WHERE photo_id="'+photo_id+'"' // , width=358, height=480
         },
         function(photo) {         */
-
 
             var photo_frame = document.createElement('div');
             photo_frame.setAttribute("id", "image_frame");
@@ -219,155 +213,195 @@ function getuserlikes(photo_id, photo_name, photo_from, photo_source){
                     var country_hash = {};
                     var gender_hash = {};
                     var friends_hash = {};
+                    var emotion_hash = {};
                     var arr_length = 0;
 
                     var profile = document.createElement('div');
                     profile.setAttribute("class", "profile");
 
+                    FB.api(photo_id + "/comments", function(comments) {
 
+                        if(comments.data.length != 0) {
 
-                   // FB.api(photo_from + "/friends", function(friends) {
-                    FB.api({
-                        //  access_token: authresponse.accessToken,
-                        method: 'fql.multiquery',
-                        queries: {
-                            query1: 'SELECT uid FROM family WHERE profile_id="'+photo_from+'"',
-                            query2: 'SELECT uid2 FROM friend WHERE uid1="'+photo_from+'"'
+                            $.getJSON("/home/prediction_check_status", function (data) {
+                                if (data && data.response.trainingStatus == 'DONE') {
+
+                                    for(var i = 0; i < comments.data.length; i++) {
+                                        $.ajax({
+                                            type: "POST",
+                                            url: "/home/predict",
+                                            data: {"input": comments.data[i].message},
+                                            success: function(data) {
+                                                if (data && data.status == 'success') {
+
+                                                    if(emotion_hash[data.response.outputLabel]) {
+                                                        emotion_hash[data.response.outputLabel] = emotion_hash[data.response.outputLabel] + 1;
+                                                    }
+                                                    else {
+                                                        emotion_hash[data.response.outputLabel] = 1;
+                                                    }
+
+                                                } else if (data && data.message) {
+                                                    console.log(data.message);
+                                                }
+                                            }
+                                        });
+                                    }
+
+                                }
+                            });
                         }
-                    },
-                    function(relationship) {
+
+                        FB.api({
+                            //  access_token: authresponse.accessToken,
+                            method: 'fql.multiquery',
+                            queries: {
+                                query1: 'SELECT uid FROM family WHERE profile_id="'+photo_from+'"',
+                                query2: 'SELECT uid2 FROM friend WHERE uid1="'+photo_from+'"'
+                            }
+                        },
+                        function(relationship) {
 
 
-                        for(var i = 0, l=likes.data.length; i<l; i++) {
+                            for(var i = 0, l=likes.data.length; i<l; i++) {
 
-                            FB.api({
-                                    method: 'fql.query',
-                                    query: 'SELECT pic_square, name, sex, current_location, hometown_location, uid FROM user WHERE uid="'+likes.data[i].id+'"'
+                                FB.api({
+                                        method: 'fql.query',
+                                        query: 'SELECT pic_square, name, sex, current_location, hometown_location, uid FROM user WHERE uid="'+likes.data[i].id+'"'
 
-                                },
-                                function(response) {
+                                    },
+                                    function(response) {
 
-                                    var profile_pic = document.createElement('img');
-                                    profile_pic.src = response[0].pic_square;
-                                    profile_pic.id = response[0].id;
+                                        var profile_pic = document.createElement('img');
+                                        profile_pic.src = response[0].pic_square;
+                                        profile_pic.id = response[0].id;
 
-                                    var name = document.createTextNode(response[0].name);
-                                    profile.appendChild(profile_pic);
-                                    profile.appendChild(name);
+                                        var name = document.createTextNode(response[0].name);
+                                        profile.appendChild(profile_pic);
+                                        profile.appendChild(name);
 
-                                    var linebreak = document.createElement('br');
-                                    profile.appendChild(linebreak);
+                                        var linebreak = document.createElement('br');
+                                        profile.appendChild(linebreak);
 
-                                    if(response[0].sex) {
-                                        if(gender_hash[response[0].sex]) {
-                                            gender_hash[response[0].sex] = gender_hash[response[0].sex] + 1;
+                                        if(response[0].sex) {
+                                            if(gender_hash[response[0].sex]) {
+                                                gender_hash[response[0].sex] = gender_hash[response[0].sex] + 1;
+                                            }
+                                            else {
+                                                gender_hash[response[0].sex] = 1;
+                                            }
+                                        }
+
+                                        if(response[0].hometown_location) {
+                                            if(country_hash[response[0].hometown_location.country]){
+                                                country_hash[response[0].hometown_location.country] = country_hash[response[0].hometown_location.country] + 1;
+                                            }
+                                            else{
+                                                country_hash[response[0].hometown_location.country] = 1;
+                                            }
+                                            arr_length++;
                                         }
                                         else {
-                                            gender_hash[response[0].sex] = 1;
+                                            if(country_hash['Unknown'])
+                                            {
+                                                country_hash['Unknown'] = country_hash['Unknown'] + 1;
+                                            }
+                                            else {
+                                                country_hash['Unknown'] = 1;
+                                            }
+                                            arr_length++;
                                         }
-                                    }
 
-                                    if(response[0].hometown_location) {
-                                        if(country_hash[response[0].hometown_location.country]){
-                                            country_hash[response[0].hometown_location.country] = country_hash[response[0].hometown_location.country] + 1;
+                                        var j = 0, k = 0;
+
+                                        while ((j < relationship[0].fql_result_set.length) &&
+                                               (relationship[0].fql_result_set[j].uid != response[0].uid)) {
+                                            j++;
                                         }
-                                        else{
-                                            country_hash[response[0].hometown_location.country] = 1;
+
+                                        if(j == relationship[0].fql_result_set.length) {
+                                            while ((k < relationship[1].fql_result_set.length) &&
+                                                   (relationship[1].fql_result_set[k].uid2 != response[0].uid)) {
+                                                k++;
+                                            }
                                         }
-                                        arr_length++;
-                                    }
-                                    else {
-                                        if(country_hash['Unknown'])
+
+                                        if(j != relationship[0].fql_result_set.length) {
+                                            if(friends_hash['Family']) {
+                                                friends_hash['Family'] = friends_hash['Family'] + 1;
+                                            }
+                                            else {
+                                                friends_hash['Family'] = 1;
+                                            }
+                                        }
+                                        else if(k != relationship[1].fql_result_set.length) {
+                                            if(friends_hash['Friends']) {
+                                                friends_hash['Friends'] = friends_hash['Friends'] + 1;
+                                            }
+                                            else {
+                                                friends_hash['Friends'] = 1;
+                                            }
+                                        }
+                                        else {
+                                            if(friends_hash['Others']) {
+                                                friends_hash['Others'] = friends_hash['Others'] + 1;
+                                            }
+                                            else {
+                                                friends_hash['Others'] = 1;
+                                            }
+                                        }
+
+
+                                        if (arr_length == likes.data.length)
                                         {
-                                            country_hash['Unknown'] = country_hash['Unknown'] + 1;
-                                        }
-                                        else {
-                                            country_hash['Unknown'] = 1;
-                                        }
-                                        arr_length++;
-                                    }
+                                            var pie_chart = document.getElementById("pie");
 
-                                    var j = 0, k = 0;
-
-                                    while ((j < relationship[0].fql_result_set.length) &&
-                                           (relationship[0].fql_result_set[j].uid != response[0].uid)) {
-                                        j++;
-                                    }
-
-                                    if(j == relationship[0].fql_result_set.length) {
-                                        while ((k < relationship[1].fql_result_set.length) &&
-                                               (relationship[1].fql_result_set[k].uid2 != response[0].uid)) {
-                                            k++;
-                                        }
-                                    }
-
-                                    if(j != relationship[0].fql_result_set.length) {
-                                        if(friends_hash['Family']) {
-                                            friends_hash['Family'] = friends_hash['Family'] + 1;
-                                        }
-                                        else {
-                                            friends_hash['Family'] = 1;
-                                        }
-                                    }
-                                    else if(k != relationship[1].fql_result_set.length) {
-                                        if(friends_hash['Friends']) {
-                                            friends_hash['Friends'] = friends_hash['Friends'] + 1;
-                                        }
-                                        else {
-                                            friends_hash['Friends'] = 1;
-                                        }
-                                    }
-                                    else {
-                                        if(friends_hash['Others']) {
-                                            friends_hash['Others'] = friends_hash['Others'] + 1;
-                                        }
-                                        else {
-                                            friends_hash['Others'] = 1;
-                                        }
-                                    }
-
-                                    if (arr_length == likes.data.length)
-                                    {
-                                        var pie_chart = document.getElementById("pie");
-
-                                        $("#tabvanilla").tabs();
-                                        var Hometowntab = document.getElementById("HomeTown");
-                                        Hometowntab.appendChild(pie_chart);
-                                        tabs.appendChild(Hometowntab);
-
-                                        drawChart(country_hash, "Where are your friends from?");
-
-                                        $("#tabvanilla a[href=#HomeTown]").click(function()
-                                        {
+                                            $("#tabvanilla").tabs();
                                             var Hometowntab = document.getElementById("HomeTown");
                                             Hometowntab.appendChild(pie_chart);
                                             tabs.appendChild(Hometowntab);
+
                                             drawChart(country_hash, "Where are your friends from?");
-                                        });
 
-                                        $("#tabvanilla a[href=#Gender]").click(function()
-                                        {
-                                            var Gendertab = document.getElementById("Gender");
-                                            Gendertab.appendChild(pie_chart);
-                                            tabs.appendChild(Gendertab);
-                                            drawChart(gender_hash, "what is the sex ratio of your friends?");
-                                        });
+                                            $("#tabvanilla a[href=#HomeTown]").click(function()
+                                            {
+                                                var Hometowntab = document.getElementById("HomeTown");
+                                                Hometowntab.appendChild(pie_chart);
+                                                tabs.appendChild(Hometowntab);
+                                                drawChart(country_hash, "Where are your friends from?");
+                                            });
 
-                                        $("#tabvanilla a[href=#Relationship]").click(function()
-                                        {
-                                            var Relationshiptab = document.getElementById("Relationship");
-                                            Relationshiptab.appendChild(pie_chart);
-                                            tabs.appendChild(Relationshiptab);
-                                            drawChart(friends_hash, "How are they related to you?");
-                                        });
+                                            $("#tabvanilla a[href=#Gender]").click(function()
+                                            {
+                                                var Gendertab = document.getElementById("Gender");
+                                                Gendertab.appendChild(pie_chart);
+                                                tabs.appendChild(Gendertab);
+                                                drawChart(gender_hash, "what is the sex ratio of your friends?");
+                                            });
 
-                                    }
-                            });
-                        }
+                                            $("#tabvanilla a[href=#Relationship]").click(function()
+                                            {
+                                                var Relationshiptab = document.getElementById("Relationship");
+                                                Relationshiptab.appendChild(pie_chart);
+                                                tabs.appendChild(Relationshiptab);
+                                                drawChart(friends_hash, "How are they related to you?");
+                                            });
+
+                                            $("#tabvanilla a[href=#Emotion]").click(function()
+                                            {
+                                                var Emotiontab = document.getElementById("Emotion");
+                                                Emotiontab.appendChild(pie_chart);
+                                                tabs.appendChild(Emotiontab);
+                                                drawChart(emotion_hash, "How is their reaction to your picture?");
+                                            });
+
+                                        }
+                                });
+                            }
+                        });
+
+                        image.appendChild(profile);
                     });
-
-                    image.appendChild(profile);
-
 
                 }
                 else {
@@ -379,6 +413,7 @@ function getuserlikes(photo_id, photo_name, photo_from, photo_source){
                 }
                 photo_frame.appendChild(image);
                 photo_frame.appendChild(tabs);
+
             });
    //     });
 

@@ -1,12 +1,8 @@
+require 'json'
+require 'open-uri'
+
 class HomeController < ApplicationController
-
-  require 'json'
-  require 'open-uri'
-
   def index
-
-
-
   end
 
   def user_albums
@@ -33,5 +29,25 @@ class HomeController < ApplicationController
 
   end
 
+  def predict
+
+    emotion_prediction = EmotionPrediction.instance
+    result = emotion_prediction.predict([params["input"]])
+
+    respond_to do |format|
+      format.json { render :json => result, :layout => false }
+    end
+
+  end
+
+  def prediction_check_status
+    emotion_prediction = EmotionPrediction.instance
+    status = emotion_prediction.check_status
+
+    respond_to do |format|
+      format.json { render :json => status, :layout => false }
+    end
+
+  end
 
 end

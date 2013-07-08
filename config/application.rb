@@ -11,6 +11,9 @@ end
 
 module SocialEnergyMap
   class Application < Rails::Application
+
+    require 'emotion_prediction'
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -60,5 +63,7 @@ module SocialEnergyMap
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    EmotionPrediction.instance
   end
 end

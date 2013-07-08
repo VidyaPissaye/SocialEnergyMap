@@ -703,7 +703,6 @@ legend span {
 /* line 365, ../../app/assets/stylesheets/custom_style.scss */
 .tabnav li a {
   text-decoration: none;
-  text-transform: uppercase;
   color: #222;
   font-weight: bold;
   padding: 1px 1px;
