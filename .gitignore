@@ -16,3 +16,6 @@
 
 # private key file
 *.p12
+
+.idea*
+.idea/*
