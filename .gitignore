@@ -14,9 +14,6 @@
 /log/*.log
 /tmp
 
-# private key file
-*.p12
-
 .idea*
 .idea/*
 .DS_Store
