@@ -37,7 +37,16 @@
         <div id="main-div">
             <%= yield %>
         </div>
-        
+
+      <%- if Rails.env == "Production"
+        fb_app_id = "370844846336833"
+        channel_url = "https://social-energy-map.herokuapp.com/channel.html"
+        else
+        fb_app_id = "169011579889904"
+        channel_url = "http://localhost:3000/channel.html"
+        end
+      %>
+
       <%= javascript_include_tag "fb_photos" %>
       <script src="http://connect.facebook.net/en_US/all.js"></script>
 
@@ -47,8 +56,8 @@
             window.fbAsyncInit = function() {
                 // init the FB JS SDK
                 FB.init({
-                    appId      : '370844846336833', // App ID from the App Dashboard
-                    channelUrl : 'http://localhost:3000/channel.html', // Channel File for x-domain communication
+                    appId      : "<%= fb_app_id%>", // App ID from the App Dashboard
+                    channelUrl : "<%= channel_url%>", // Channel File for x-domain communication
                     status     : true, // check the login status upon init?
                     cookie     : true, // set sessions cookies to allow your server to access the session?
                     xfbml      : true,  // parse XFBML tags on this page?
