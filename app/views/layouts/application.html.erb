@@ -38,7 +38,7 @@
             <%= yield %>
         </div>
 
-      <%- if Rails.env == "Production"
+      <%- if Rails.env == "production"
         fb_app_id = "370844846336833"
         channel_url = "https://social-energy-map.herokuapp.com/channel.html"
         else
