@@ -237,166 +237,6 @@
     color: #444; }
 
 
-// FB Photos
-
-#Photo_albums{
-  text-align:justify;
-  width: 70%;
-  float: left;
-  padding-left: 3em;
-
-  h3{
-    color: #444;
-    text-align: center;
-  }
-
-}
-
-
-#image_frame {
-  margin: 0 auto;
-  width: 75%;
-  padding:5px;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.image
-  {
-  margin: 5px;
-  height: auto;
-  float: left;
-  text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.image img
-  {
-  display: inline;
-  margin: 3px;
-  
-  width: 200px;
-  height: 150px;
-
-}
-
-.image img:hover {border: 3px solid #ffffff;}
-
-
-.page_title {
-  font-size: 1.5em;
-  font-weight: bold;
-  text-align: center;
-}
-
-#pie{
-  float: right;
-  width: 340px;
-  height: 300px;
-}
-
-.picture
-  {
-  margin: 2px;
-  height: auto;
-  width: auto;
-  float: left;
-
-}
-
-.picture img
-  {
-  display: inline;
-  margin: 5px;
-
-
-}
-
-.title
-  {
-  height: 25px;
-  text-overflow: ellipsis;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.profile
-  {
-  text-align: left;
-}
-
-
-.widget {
-  width: 375px;
-  height: 400px;
-  margin: 8px;
-  padding: 10px;
-  background: #f3f1eb;
-  border: 1px solid #dedbd1;
-  margin-bottom: 15px;
-  float: right;
-}
-
-.widget a {
-  color: #222;
-  text-decoration: none;
-}
-
-.widget a:hover {
-  color: #009;
-  text-decoration: underline;
-}
-
-.widget ul, ol {
-  margin-bottom: 10px;
-}
-
-.tabnav li {
-  display: inline;
-  list-style: none;
-  padding-right: 5px;
-  line-height: 0px;
-  margin-bottom: 0px;
-}
-
-.tabnav li a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #222;
-  font-weight: bold;
-  padding: 1px 1px;
-  outline: none;
-}
-
-
-
-
-.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-active a {
-  background: #dedbd1;
-  color: #222;
-  text-decoration: none;
-}
-
-.tabdiv {
-  margin-top: 2px;
-  background: #fff;
-  border: 1px solid #dedbd1;
-  padding: 5px;
-  position: absolute;
-  overflow: hidden;
-}
-
-.tabdiv li {
-  list-style-image: url("star.png");
-  margin-left: 20px;
-}
-
-.ui-tabs-hide {
-  display: none;
-}
 
 
 /*
@@ -467,12 +307,211 @@ html, body, #sidebar, #content {
 
 }
 
-#content{
+
+// FB Photos
+
+#Photo_albums{
+  text-align:justify;
   width: 70%;
   float: left;
   padding-left: 3em;
 
+  h3{
+    color: #444;
+    text-align: center;
+  }
 
 }
+
+
+#image_frame {
+  margin: 0 auto;
+  width: 75%;
+  padding:5px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image
+  {
+  margin: 5px;
+  height: auto;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.image img
+  {
+  display: inline;
+  margin: 3px;
+
+  width: 200px;
+  height: 150px;
+
+}
+
+.image img:hover {border: 3px solid #ffffff;}
+
+
+.page_title {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+#pie{
+  float: right;
+  width: 340px;
+  height: 300px;
+}
+
+.picture
+  {
+  margin: 2px;
+  width: 500px;
+  height: 500px;
+  float: left;
+
+}
+
+.picture img
+  {
+  display: inline;
+  margin: 5px;
+
+
+}
+
+.title
+  {
+  height: 25px;
+  text-overflow: ellipsis;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+  .widget {
+    width: 375px;
+    height: 400px;
+    margin: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #f3f1eb;
+    border: 1px solid #dedbd1;
+    float: right;
+
+  a {
+    color: #222;
+    text-decoration: none;
+
+
+    &:hover {
+      color: #009;
+      text-decoration: underline;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 10px;
+  }
+}
+
+.tabnav li {
+  display: inline;
+  list-style: none;
+  padding-right: 5px;
+  line-height: 0px;
+  margin-bottom: 0px;
+}
+
+.tabnav li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #222;
+  font-weight: bold;
+  padding: 1px 1px;
+  outline: none;
+}
+
+.tabnav li a:hover, .tabnav li a:active, .tabnav li.ui-tabs-active a {
+  background: #dedbd1;
+  color: #222;
+  text-decoration: none;
+}
+
+.tabdiv {
+  margin-top: 2px;
+  background: #fff;
+  border: 1px solid #dedbd1;
+  padding: 5px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.tabdiv li {
+  list-style-image: url("star.png");
+  margin-left: 20px;
+}
+
+.ui-tabs-hide {
+  display: none;
+}
+
+.statistic_style {
+
+  background: #f3f1eb;
+  border: 1px solid #dedbd1;
+  float: right;
+  width: 375px;
+  height: 400px;
+}
+
+.like_comment_style {
+
+  width: 400px;
+  height: auto;
+  float: left;
+  text-align: left;
+  position: absolute;
+  overflow: hidden;
+
+  a {
+    color: #222;
+    text-decoration: none;
+
+
+    &:hover {
+      color: #009;
+      text-decoration: underline;
+    }
+  }
+
+  ul, ol {
+    margin-bottom: 10px;
+  }
+}
+
+.like_style {
+  text-align: left;
+}
+
+.bold_text {
+  font-weight: 'bold';
+}
+
+#content{
+  width: 70%;
+  float: left;
+  padding-left: 3em;
+}
+
+
+
 
 

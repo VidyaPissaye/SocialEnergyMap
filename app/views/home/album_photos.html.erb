@@ -10,7 +10,7 @@
         FB.getLoginStatus(
                 function(response) {
                     if (response.status === "connected") {
-                        getphotos("<%=@album_id%>","<%=@album_name%>");
+                        getphotos("<%=@album_id%>","<%=@album_name.html_safe%>");
                     } else if (response.status === "not_authorized") {
                         //user is currently logged in to facebook, but has not authorized this app
                     } else {

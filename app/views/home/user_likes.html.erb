@@ -3,7 +3,7 @@
 
     <body>
 
-    <div id="tabvanilla" class="widget">
+    <div id="statistics" class="widget">
 
         <ul class="tabnav">
           <li><a href="#HomeTown">HomeTown</a></li>
@@ -30,12 +30,31 @@
 
     </div>
 
+
+    <div id="likecommentlist" class="like_comment_style">
+
+      <ul class="tabnav">
+        <li><a href="#Likes">Likes</a></li>
+        <li><a href="#Comments">Comments</a></li>
+      </ul>
+
+      <div id="Likes" class="like_style">
+        <p></p>
+      </div>
+
+      <div id="Comments" class="like_style">
+        <p></p>
+      </div>
+
+    </div>
+
     </body>
 
 <%= javascript_include_tag 'fb_photos' %>
 
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 <script language="javascript" type="text/javascript">
 
     isGoogleLoaded = false;
