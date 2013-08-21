@@ -38,7 +38,6 @@ class EmotionPrediction
     input.input = {}
     input.input.csv_instance = comment
 
-    puts comment
     result = @client.execute(
         :api_method => @prediction.trainedmodels.predict,
         :parameters => {'id' => 'emotion_prediction_id'},
