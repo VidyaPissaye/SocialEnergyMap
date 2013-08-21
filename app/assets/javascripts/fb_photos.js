@@ -146,6 +146,7 @@ function getphotos(album_id, album_name) {
     });
 }
 
+// Gets the selected photo and calculates the statistics of the photo using like and comment information
 function getuserlikes(photo_id, photo_name, photo_from, photo_source) {
 
     $("#statistics").hide();
@@ -236,10 +237,8 @@ function getuserlikes(photo_id, photo_name, photo_from, photo_source) {
 
                     var text = document.createTextNode("This picture has been liked by " + likes.data.length + " friend(s):");
                     heading.appendChild(text);
-                  //  image.appendChild(heading);
 
                     process_likes(likes, photo_from, emotion_hash);
-                   // image.appendChild(document.getElementById("likecommentlist"));
 
                 }
                 else {
@@ -338,7 +337,7 @@ function process_likes(likes, photo_from, emotion_hash) {
 
     var like_div = document.getElementById("Likes");
 
-    // Get the Family and Friend list of the logged in user
+    // Get the Family and Friends list of the logged in user
     FB.api({
             //  access_token: authresponse.accessToken,
             method: 'fql.multiquery',
@@ -559,7 +558,6 @@ function drawChart(count, title_string) {
     // Instantiate and draw our chart, passing in some options.
     var chart = new google.visualization.PieChart(document.getElementById("pie"));
     chart.draw(data, options);
-
 }
 
 
