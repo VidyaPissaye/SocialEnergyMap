@@ -8,7 +8,7 @@ class EmotionPrediction
   # ------------------------
   DATA_OBJECT = "vidbucket/comments.txt" # This is the {bucket}/{object} name you are using for the language file.
   CLIENT_EMAIL = "248144510891@developer.gserviceaccount.com" # Email of service account
-  KEYFILE = File.join( Rails.root, "config", "google_api_key.p12")
+  KEYFILE = File.join( Rails.root, "config", "google_api_key.p12")  # key file generated from google account.
   PASSPHRASE = 'notasecret' # Passphrase for private key
   # ------------------------
 
@@ -32,12 +32,12 @@ class EmotionPrediction
     assemble_json_body(result)
   end
 
+  # Runs the prediction api for the input string
   def predict(comment)
     input = @prediction.trainedmodels.predict.request_schema.new
     input.input = {}
     input.input.csv_instance = comment
 
-    puts comment
     result = @client.execute(
         :api_method => @prediction.trainedmodels.predict,
         :parameters => {'id' => 'emotion_prediction_id'},
@@ -69,6 +69,7 @@ class EmotionPrediction
 
   private
 
+  # Configures the account for api use
   def configure
     @client = Google::APIClient.new
 
@@ -90,6 +91,7 @@ class EmotionPrediction
 
   end
 
+  # Trains the dataset uploaded in the google account
   def train
     training = @prediction.trainedmodels.insert.request_schema.new
     training.id = 'emotion_prediction_id'

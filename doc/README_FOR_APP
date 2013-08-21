@@ -1,2 +1,62 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+ == Overview of SocialEnergyMap project code
+
+ == Views
+ == application.html.erb:
+    Initializes the Facebook JS SDK and sets the rails environment to the appropriate Facebook app id.
+ == index.html.erb:
+    Landing page. Checks login into Facebook
+ == user_albums.html.erb:
+    Displays current user's photo albums from facebook.
+ == album_photos.html.erb:
+    Displays the photos from the selected album.
+ == user_likes.html.erb:
+    Displays the likes and comments on the selected photo. The page also projects the statistics determined using the
+    demographic and comment information of the users who liked and commented on the selected photo.
+
+ == Controllers
+ == home_controller.rb:
+    1. user_albums, album_photos and user_likes methods store the parameters passed from the index.html.erb, and
+    getalbums, getphotos methods in fb_photos.js to be passed to the next page.
+
+    2. prediction_check_status method checks the status of the google's prediction api
+
+    3. predict method calls the predict method in the emotion_prediction.rb with the input string to categorize
+       the input string into the appropriate category.
+
+ == Lib
+ == emotion_prediction.rb:
+    It is a singleton class that trains the prediction data set and runs google's prediction api to predict
+    and categorize the input string.
+    Emotion_prediction is instantiated in application.rb
+
+ == Stylesheets
+ == custom_style.scss:
+    is the mail stylesheet for the project
+
+ == javascripts
+ == fb_photos.js:
+    methods:
+    1. getalbums:
+        Accesses the current user's facebook albums to choose from.
+
+    2. getphotos:
+        Retrieves all the photos from the selected user album and displays them to choose.
+
+    3. getuserlikes:
+        Retrieves the likes and comments on the selected photo and uses the information to calculate the statistics
+        based on the demographic and comment information of the users who liked/commented on the selected photo.
+
+
+ == Instructions to use Google Prediction API
+    1. Get Google Account
+    2. Create a APIs Console Project and activate Google Prediction API and Google Cloud Storage API
+        (https://code.google.com/apis/console)
+    3. Generate Google API Key (p12 file) and place in the config folder
+    4. Go to Google Cloud Storage tab in the Google Console -> Create a New Bucket -> Upload the comments.txt file in
+       the project.
+    5. Update the project credentials in the emotion_prediction.rb file with the credentials created from the above steps.
+
+

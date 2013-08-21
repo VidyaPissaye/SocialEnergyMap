@@ -501,6 +501,11 @@ html, body, #sidebar, #content {
   text-align: left;
 }
 
+.like_style li {
+  list-style-image: url("star.png");
+  margin-left: 20px;
+}
+
 .bold_text {
   font-weight: 'bold';
 }

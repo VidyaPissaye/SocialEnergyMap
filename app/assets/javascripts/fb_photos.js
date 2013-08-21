@@ -259,7 +259,7 @@ function getuserlikes(photo_id, photo_name, photo_from, photo_source) {
     });
 }
 
-
+// Categorizes the comments using Google's prediction api
 function process_comments(comments) {
 
     var comment_div = document.getElementById("Comments");
@@ -332,7 +332,7 @@ function process_comments(comments) {
     return emotion_hash
 }
 
-
+// Determines the hometown, gender and friends' list of the users in the likes record
 function process_likes(likes, photo_from, emotion_hash) {
 
 
@@ -465,7 +465,7 @@ function process_likes(likes, photo_from, emotion_hash) {
 }
 
 
-// Determine if "Like" info is selected or "Comments" and display
+// Determine if "Like" info or "Comments" is selected and display
 function display_like_or_comment() {
 
     var like_comment_tabs = document.getElementById("likecommentlist");
@@ -488,7 +488,7 @@ function display_like_or_comment() {
     });
 }
 
-// Determine user click on the statistic and draw
+// Determine user click on the statistic and display chart
 function display_statistic(country_hash, gender_hash, friends_hash, emotion_hash) {
 
     var statistic_tabs = document.getElementById("statistics");
